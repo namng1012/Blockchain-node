@@ -1,0 +1,79 @@
+[package]
+name = "original"
+version = "4.0.0-dev"
+description = "A fresh FRAME-based Substrate node, ready for hacking."
+authors = ["Substrate DevHub <https://github.com/substrate-developer-hub>"]
+homepage = "https://substrate.io/"
+edition = "2021"
+license = "Unlicense"
+publish = false
+repository = "https://github.com/substrate-developer-hub/substrate-original/"
+build = "build.rs"
+
+[package.metadata.docs.rs]
+targets = ["x86_64-unknown-linux-gnu"]
+
+[[bin]]
+name = "original"
+
+[dependencies]
+clap = { version = "4.0.9", features = ["derive"] }
+
+sc-cli = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+sp-core = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+sc-executor = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+sc-service = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+sc-telemetry = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+sc-keystore = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+sc-transaction-pool = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+sc-transaction-pool-api = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+sc-consensus-aura = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+sp-consensus-aura = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+sp-consensus = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+sc-consensus = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+sc-finality-grandpa = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+sp-finality-grandpa = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+sc-client-api = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+sp-runtime = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+sp-timestamp = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+sp-inherents = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+sp-keyring = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+
+frame-system = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+pallet-transaction-payment = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git", default-features = false }
+
+# These dependencies are used for the node template's RPCs
+jsonrpsee = { version = "0.15.1", features = ["server"] }
+sc-rpc = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+sp-api = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+sc-rpc-api = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+sp-blockchain = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+sp-block-builder = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+sc-basic-authorship = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+substrate-frame-rpc-system = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+pallet-transaction-payment-rpc = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+
+# These dependencies are used for runtime benchmarking
+frame-benchmarking = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+frame-benchmarking-cli = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+
+# Local Dependencies
+original-runtime = { path = "../../runtime/original" }
+
+# CLI-specific dependencies
+try-runtime-cli = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git", optional = true}
+
+[build-dependencies]
+substrate-build-script-utils = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+
+[features]
+default = []
+# Dependencies that are only required if runtime benchmarking should be build.
+runtime-benchmarks = [
+	"original-runtime/runtime-benchmarks",
+	"frame-benchmarking/runtime-benchmarks",
+	"frame-benchmarking-cli/runtime-benchmarks",
+]
+# Enable features that allow the runtime to be tried and debugged. Name might be subject to change
+# in the near future.
+try-runtime = ["original-runtime/try-runtime", "try-runtime-cli"]

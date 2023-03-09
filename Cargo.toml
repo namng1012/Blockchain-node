@@ -1,0 +1,8 @@
+[workspace]
+members = [
+    "node/original",
+    "pallets/ea4healthcare",
+    "runtime/original",
+]
+[profile.release]
+panic = "unwind"

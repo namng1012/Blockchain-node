@@ -1,0 +1,114 @@
+[package]
+name = "original-runtime"
+version = "4.0.0-dev"
+description = "A fresh FRAME-based Substrate node, ready for hacking."
+authors = ["Substrate DevHub <https://github.com/substrate-developer-hub>"]
+homepage = "https://substrate.io/"
+edition = "2021"
+license = "Unlicense"
+publish = false
+repository = "https://github.com/substrate-developer-hub/substrate-original/"
+
+[package.metadata.docs.rs]
+targets = ["x86_64-unknown-linux-gnu"]
+
+[dependencies]
+codec = { package = "parity-scale-codec", version = "3.0.0", default-features = false, features = ["derive"] }
+scale-info = { version = "2.1.1", default-features = false, features = ["derive"] }
+
+pallet-aura = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+pallet-balances = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+frame-support = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+pallet-grandpa = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+pallet-randomness-collective-flip = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+pallet-sudo = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+frame-system = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+frame-try-runtime = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git", optional = true}
+pallet-timestamp = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+pallet-utility = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+pallet-transaction-payment = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+frame-executive = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+sp-api = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+sp-block-builder = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+sp-consensus-aura = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+sp-core = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+sp-inherents = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+sp-offchain = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+sp-runtime = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+sp-session = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+sp-std = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+sp-transaction-pool = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+sp-version = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+
+# Used for the node template's RPCs
+frame-system-rpc-runtime-api = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+pallet-transaction-payment-rpc-runtime-api = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+
+# Used for runtime benchmarking
+frame-benchmarking = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git", optional = true }
+frame-system-benchmarking = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git", optional = true }
+
+# Local Dependencies
+ea4healthcare = { default-features = false, path = "../../pallets/ea4healthcare" }
+
+[build-dependencies]
+substrate-wasm-builder = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+
+[features]
+default = ["std"]
+std = [
+	"pallet-timestamp/std",
+	"frame-try-runtime?/std",
+	"frame-system-benchmarking?/std",
+	"frame-benchmarking?/std",
+	"codec/std",
+	"scale-info/std",
+	"frame-executive/std",
+	"frame-support/std",
+	"frame-system-rpc-runtime-api/std",
+	"frame-system/std",
+	"frame-try-runtime/std",
+	"pallet-aura/std",
+	"pallet-balances/std",
+	"pallet-grandpa/std",
+	"pallet-randomness-collective-flip/std",
+	"pallet-sudo/std",
+	"ea4healthcare/std",
+	"pallet-timestamp/std",
+	"pallet-transaction-payment-rpc-runtime-api/std",
+	"pallet-transaction-payment/std",
+	"sp-api/std",
+	"sp-block-builder/std",
+	"sp-consensus-aura/std",
+	"sp-core/std",
+	"sp-inherents/std",
+	"sp-offchain/std",
+	"sp-runtime/std",
+	"sp-session/std",
+	"sp-std/std",
+	"sp-transaction-pool/std",
+	"sp-version/std",
+]
+runtime-benchmarks = [
+	"frame-benchmarking/runtime-benchmarks",
+	"frame-support/runtime-benchmarks",
+	"frame-system-benchmarking/runtime-benchmarks",
+	"frame-system/runtime-benchmarks",
+	"pallet-balances/runtime-benchmarks",
+	"pallet-grandpa/runtime-benchmarks",
+	"pallet-timestamp/runtime-benchmarks",
+	"sp-runtime/runtime-benchmarks",
+]
+try-runtime = [
+	"frame-try-runtime",
+	"frame-executive/try-runtime",
+	"frame-system/try-runtime",
+	"frame-support/try-runtime",
+	"pallet-aura/try-runtime",
+	"pallet-balances/try-runtime",
+	"pallet-grandpa/try-runtime",
+	"pallet-randomness-collective-flip/try-runtime",
+	"pallet-sudo/try-runtime",
+	"pallet-timestamp/try-runtime",
+	"pallet-transaction-payment/try-runtime",
+]
