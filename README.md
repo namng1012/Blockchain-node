@@ -11,7 +11,6 @@ How to use this:
     ```sh
     git clone https://github.com/namng1012/Blockchain-node.git
     ```
-    ```
 3) Build
     ```sh
     cargo build --release
