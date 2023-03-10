@@ -37,6 +37,14 @@ pallet-sudo = { default-features = false, git = "https://github.com/namng1012/Po
 pallet-timestamp = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
 pallet-transaction-payment = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
 
+# Used for the node template's RPCs
+frame-system-rpc-runtime-api = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+pallet-transaction-payment-rpc-runtime-api = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+
+# Used for runtime benchmarking
+frame-benchmarking = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git", optional = true }
+frame-system-benchmarking = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git", optional = true }
+
 # Local Dependencies
 ea4healthcare = { default-features = false, path = "../../pallets/ea4healthcare" }
 
