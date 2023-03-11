@@ -4602,6 +4602,7 @@ dependencies = [
  "frame-system",
  "frame-system-benchmarking",
  "frame-system-rpc-runtime-api",
+ "frame-try-runtime",
  "pallet-balances",
  "pallet-randomness-collective-flip",
  "pallet-sudo",
