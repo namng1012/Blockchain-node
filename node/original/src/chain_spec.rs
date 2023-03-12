@@ -1,6 +1,7 @@
 use original_runtime::{
 	AccountId, AuraConfig, BalancesConfig, GenesisConfig, GrandpaConfig, Signature,
 	SudoConfig, SystemConfig, WASM_BINARY,
+	DifficultyConfig, RewardsConfig, TreasuryConfig
 };
 use sc_service::ChainType;
 use sp_consensus_aura::sr25519::AuthorityId as AuraId;
@@ -157,5 +158,12 @@ fn testnet_genesis(
 			key: Some(root_key),
 		},
 		transaction_payment: Default::default(),
+		difficulty: DifficultyConfig {
+			difficulty: 100_000.into()
+		},
+		rewards: RewardsConfig {
+			reward: 100u128
+		},
+		treasury: TreasuryConfig {},
 	}
 }

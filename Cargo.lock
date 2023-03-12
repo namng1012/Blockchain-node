@@ -3931,19 +3931,24 @@ dependencies = [
  "frame-system-rpc-runtime-api",
  "frame-try-runtime",
  "pallet-aura",
+ "pallet-authorship",
  "pallet-balances",
+ "pallet-difficulty",
  "pallet-grandpa",
  "pallet-randomness-collective-flip",
+ "pallet-rewards",
  "pallet-sudo",
  "pallet-timestamp",
  "pallet-transaction-payment",
  "pallet-transaction-payment-rpc-runtime-api",
+ "pallet-treasury",
  "pallet-utility",
  "parity-scale-codec",
  "scale-info",
  "sp-api",
  "sp-block-builder",
  "sp-consensus-aura",
+ "sp-consensus-pow",
  "sp-core",
  "sp-inherents",
  "sp-offchain",
@@ -4177,6 +4182,23 @@ dependencies = [
  "sp-api",
  "sp-runtime",
  "sp-weights",
+]
+
+[[package]]
+name = "pallet-treasury"
+version = "4.0.0-dev"
+source = "git+https://github.com/namng1012/Polkadot-Package-9-32.git#b6a7821976807f80d26ae724480ded5b9ba97b99"
+dependencies = [
+ "frame-benchmarking",
+ "frame-support",
+ "frame-system",
+ "impl-trait-for-tuples",
+ "pallet-balances",
+ "parity-scale-codec",
+ "scale-info",
+ "serde",
+ "sp-runtime",
+ "sp-std",
 ]
 
 [[package]]

@@ -48,6 +48,15 @@ pallet-transaction-payment-rpc-runtime-api = { default-features = false, git = "
 frame-benchmarking = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git", optional = true }
 frame-system-benchmarking = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git", optional = true }
 
+# pow dependencies
+sp-consensus-pow = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git", optional = true }
+pallet-treasury = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git", optional = true }
+pallet-authorship = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git", optional = true }
+
+# Local Dependencies
+pallet-difficulty = { version = "4.0.0-dev", default-features = false, path = "../../pallets/difficulty" }
+pallet-rewards = { version = "4.0.0-dev", default-features = false, path = "../../pallets/rewards" }
+
 [build-dependencies]
 substrate-wasm-builder = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
 
@@ -85,6 +94,8 @@ std = [
 	"sp-std/std",
 	"sp-transaction-pool/std",
 	"sp-version/std",
+	"pallet-treasury/std",
+	"pallet-authorship/std",
 ]
 runtime-benchmarks = [
 	"frame-benchmarking/runtime-benchmarks",
