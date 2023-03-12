@@ -4018,6 +4018,21 @@ dependencies = [
 ]
 
 [[package]]
+name = "pallet-difficulty"
+version = "4.0.0-dev"
+dependencies = [
+ "frame-benchmarking",
+ "frame-support",
+ "frame-system",
+ "parity-scale-codec",
+ "scale-info",
+ "serde",
+ "sp-core",
+ "sp-io",
+ "sp-runtime",
+]
+
+[[package]]
 name = "pallet-grandpa"
 version = "4.0.0-dev"
 source = "git+https://github.com/namng1012/Polkadot-Package-9-32.git#b6a7821976807f80d26ae724480ded5b9ba97b99"
