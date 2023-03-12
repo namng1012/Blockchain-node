@@ -96,6 +96,9 @@ std = [
 	"sp-version/std",
 	"pallet-treasury/std",
 	"pallet-authorship/std",
+	"sp-consensus-pow/std",
+	"pallet-difficulty/std",
+	"pallet-rewards/std"
 ]
 runtime-benchmarks = [
 	"frame-benchmarking/runtime-benchmarks",

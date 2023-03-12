@@ -457,6 +457,12 @@ impl_runtime_apis! {
 		}
 	}
 
+	// impl sp_consensus_pow::DifficultyApi<Block, sp_core::U256> for Runtime {
+	// 	fn difficulty() -> sp_core::U256 {
+	// 		Difficulty::runtime_difficulty().unwrap()
+	// 	}
+	// }
+
 	impl sp_consensus_aura::AuraApi<Block, AuraId> for Runtime {
 		fn slot_duration() -> sp_consensus_aura::SlotDuration {
 			sp_consensus_aura::SlotDuration::from_millis(Aura::slot_duration())
