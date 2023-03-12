@@ -4021,7 +4021,6 @@ dependencies = [
 name = "pallet-difficulty"
 version = "4.0.0-dev"
 dependencies = [
- "frame-benchmarking",
  "frame-support",
  "frame-system",
  "parity-scale-codec",
@@ -4029,7 +4028,6 @@ dependencies = [
  "serde",
  "sp-core",
  "sp-io",
- "sp-runtime",
 ]
 
 [[package]]

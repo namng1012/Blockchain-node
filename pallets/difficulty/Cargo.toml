@@ -1,7 +1,7 @@
 [package]
 edition = "2021"
 name = "pallet-difficulty"
-authors = ["Usama Ali"]
+authors = [""]
 version = "4.0.0-dev"
 license = "Unlicense"
 readme = "README.md"
@@ -16,12 +16,10 @@ scale-info = { version = "2.1.1", default-features = false, features = ["derive"
 frame-support = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
 frame-system = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
 sp-core = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
-frame-benchmarking = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git", optional = true }
 
 [dev-dependencies]
 serde = { version = "1.0.126" }
 sp-io = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
-sp-runtime = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
 
 [features]
 default = ["std"]
@@ -30,9 +28,5 @@ std = [
 	"scale-info/std",
 	"frame-support/std",
 	"frame-system/std",
-	"frame-benchmarking?/std",
 	"sp-core/std"
 ]
-
-runtime-benchmarks = ["frame-benchmarking"]
-try-runtime = ["frame-support/try-runtime"]
