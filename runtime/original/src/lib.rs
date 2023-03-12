@@ -45,10 +45,6 @@ use pallet_transaction_payment::{ConstFeeMultiplier, CurrencyAdapter, Multiplier
 pub use sp_runtime::BuildStorage;
 pub use sp_runtime::{Perbill, Permill};
 
-/// Import the template pallet.
-pub use ea4healthcare;
-pub use pallet_utility;
-
 /// An index to a block.
 pub type BlockNumber = u32;
 
@@ -274,11 +270,6 @@ impl pallet_sudo::Config for Runtime {
 	type RuntimeCall = RuntimeCall;
 }
 
-impl ea4healthcare::Config for Runtime {
-	type RuntimeEvent = RuntimeEvent;
-    type HealthRandomness = RandomnessCollectiveFlip;
-	type WeightInfo = ();
-}
 impl pallet_utility::Config for Runtime {
 	type RuntimeEvent = RuntimeEvent;
     type RuntimeCall = RuntimeCall;
@@ -302,7 +293,6 @@ construct_runtime!(
 		Balances: pallet_balances,
 		TransactionPayment: pallet_transaction_payment,
 		Sudo: pallet_sudo,
-		EA4Healthcare: ea4healthcare,
 		Utility: pallet_utility,
 	}
 );

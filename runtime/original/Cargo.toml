@@ -48,15 +48,13 @@ pallet-transaction-payment-rpc-runtime-api = { default-features = false, git = "
 frame-benchmarking = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git", optional = true }
 frame-system-benchmarking = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git", optional = true }
 
-# Local Dependencies
-ea4healthcare = { default-features = false, path = "../../pallets/ea4healthcare" }
-
 [build-dependencies]
 substrate-wasm-builder = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
 
 [features]
 default = ["std"]
 std = [
+	"pallet-utility/std",
 	"pallet-timestamp/std",
 	"frame-try-runtime?/std",
 	"frame-system-benchmarking?/std",
@@ -73,7 +71,6 @@ std = [
 	"pallet-grandpa/std",
 	"pallet-randomness-collective-flip/std",
 	"pallet-sudo/std",
-	"ea4healthcare/std",
 	"pallet-timestamp/std",
 	"pallet-transaction-payment-rpc-runtime-api/std",
 	"pallet-transaction-payment/std",

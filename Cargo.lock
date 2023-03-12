@@ -1375,18 +1375,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c9b0705efd4599c15a38151f4721f7bc388306f61084d3bfd50bd07fbca5cb60"
 
 [[package]]
-name = "ea4healthcare"
-version = "0.1.0"
-dependencies = [
- "frame-support",
- "frame-system",
- "parity-scale-codec",
- "scale-info",
- "serde",
- "sp-std",
-]
-
-[[package]]
 name = "ecdsa"
 version = "0.13.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3935,7 +3923,6 @@ dependencies = [
 name = "original-runtime"
 version = "4.0.0-dev"
 dependencies = [
- "ea4healthcare",
  "frame-benchmarking",
  "frame-executive",
  "frame-support",
@@ -4169,6 +4156,7 @@ name = "pallet-utility"
 version = "4.0.0-dev"
 source = "git+https://github.com/namng1012/Polkadot-Package-9-32.git#105c4bd7f33bcf863534f4cd1afa921c48e38d98"
 dependencies = [
+ "frame-benchmarking",
  "frame-support",
  "frame-system",
  "parity-scale-codec",
