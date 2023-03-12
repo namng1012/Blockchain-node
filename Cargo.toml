@@ -2,7 +2,8 @@
 members = [
     "node/original",
     "runtime/original",
-    "pallets/difficulty"
+    "pallets/difficulty",
+    "pallets/rewards",
 ]
 [profile.release]
 panic = "unwind"
