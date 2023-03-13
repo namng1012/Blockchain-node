@@ -1,7 +1,9 @@
 [workspace]
 members = [
     "node/original",
-    "runtime/original",
+    "runtime/original-runtime",
+    "node/pow",
+    "runtime/pow-runtime"
 ]
 [profile.release]
 panic = "unwind"
