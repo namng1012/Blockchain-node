@@ -6,16 +6,18 @@
 #[cfg(feature = "std")]
 include!(concat!(env!("OUT_DIR"), "/wasm_binary.rs"));
 
-use pallet_grandpa::{
-	fg_primitives, AuthorityId as GrandpaId, AuthorityList as GrandpaAuthorityList,
-};
+// use pallet_grandpa::{
+// 	fg_primitives, AuthorityId as GrandpaId, AuthorityList as GrandpaAuthorityList,
+// }; // Change Here
 use sp_api::impl_runtime_apis;
-use sp_consensus_aura::sr25519::AuthorityId as AuraId;
+// use sp_consensus_aura::sr25519::AuthorityId as AuraId; // Change Here
 use sp_core::{crypto::KeyTypeId, OpaqueMetadata};
 use sp_runtime::{
-	create_runtime_str, generic, impl_opaque_keys,
+	create_runtime_str, generic, 
+	// impl_opaque_keys, // Change Here
 	traits::{
-		AccountIdLookup, BlakeTwo256, Block as BlockT, IdentifyAccount, NumberFor, One, Verify,
+		AccountIdLookup, BlakeTwo256, Block as BlockT, IdentifyAccount, One, Verify,
+		// NumberFor, // Change Here
 	},
 	transaction_validity::{TransactionSource, TransactionValidity},
 	ApplyExtrinsicResult, MultiSignature,
@@ -50,7 +52,7 @@ pub use sp_runtime::{Perbill, Permill};
 
 pub mod constants;
 
-use constants::{currency::*, time::*};
+use constants::{currency::*};
 
 /// An index to a block.
 pub type BlockNumber = u32;
@@ -87,12 +89,12 @@ pub mod opaque {
 	/// Opaque block identifier type.
 	pub type BlockId = generic::BlockId<Block>;
 
-	impl_opaque_keys! {
-		pub struct SessionKeys {
-			pub aura: Aura,
-			pub grandpa: Grandpa,
-		}
-	}
+	// impl_opaque_keys! {
+	// 	pub struct SessionKeys {
+	// 		pub aura: Aura,
+	// 		pub grandpa: Grandpa,
+	// 	}// Change Here
+	// }
 }
 
 // To learn more about runtime versioning, see:
@@ -209,35 +211,36 @@ impl frame_system::Config for Runtime {
 
 impl pallet_randomness_collective_flip::Config for Runtime {}
 
-impl pallet_aura::Config for Runtime {
-	type AuthorityId = AuraId;
-	type DisabledValidators = ();
-	type MaxAuthorities = ConstU32<32>;
-}
+// impl pallet_aura::Config for Runtime {
+// 	type AuthorityId = AuraId;
+// 	type DisabledValidators = ();
+// 	type MaxAuthorities = ConstU32<32>;
+// }// Change Here
 
-impl pallet_grandpa::Config for Runtime {
-	type RuntimeEvent = RuntimeEvent;
+// impl pallet_grandpa::Config for Runtime {
+// 	type RuntimeEvent = RuntimeEvent;
 
-	type KeyOwnerProofSystem = ();
+// 	type KeyOwnerProofSystem = ();
 
-	type KeyOwnerProof =
-		<Self::KeyOwnerProofSystem as KeyOwnerProofSystem<(KeyTypeId, GrandpaId)>>::Proof;
+// 	type KeyOwnerProof =
+// 		<Self::KeyOwnerProofSystem as KeyOwnerProofSystem<(KeyTypeId, GrandpaId)>>::Proof;
 
-	type KeyOwnerIdentification = <Self::KeyOwnerProofSystem as KeyOwnerProofSystem<(
-		KeyTypeId,
-		GrandpaId,
-	)>>::IdentificationTuple;
+// 	type KeyOwnerIdentification = <Self::KeyOwnerProofSystem as KeyOwnerProofSystem<(
+// 		KeyTypeId,
+// 		GrandpaId,
+// 	)>>::IdentificationTuple;
 
-	type HandleEquivocation = ();
+// 	type HandleEquivocation = ();
 
-	type WeightInfo = ();
-	type MaxAuthorities = ConstU32<32>;
-}
+// 	type WeightInfo = ();
+// 	type MaxAuthorities = ConstU32<32>;
+// }// Change Here
 
 impl pallet_timestamp::Config for Runtime {
 	/// A timestamp: milliseconds since the unix epoch.
 	type Moment = u64;
-	type OnTimestampSet = Aura;
+	// type OnTimestampSet = Aura;
+	type OnTimestampSet = (); // Change Here
 	type MinimumPeriod = ConstU64<{ SLOT_DURATION / 2 }>;
 	type WeightInfo = ();
 }
@@ -340,8 +343,8 @@ construct_runtime!(
 		System: frame_system,
 		RandomnessCollectiveFlip: pallet_randomness_collective_flip,
 		Timestamp: pallet_timestamp,
-		Aura: pallet_aura,
-		Grandpa: pallet_grandpa,
+		// Aura: pallet_aura,// Change Here
+		// Grandpa: pallet_grandpa,// Change Here
 		Balances: pallet_balances,
 		TransactionPayment: pallet_transaction_payment,
 		Sudo: pallet_sudo,
@@ -457,63 +460,69 @@ impl_runtime_apis! {
 		}
 	}
 
-	// impl sp_consensus_pow::DifficultyApi<Block, sp_core::U256> for Runtime {
-	// 	fn difficulty() -> sp_core::U256 {
-	// 		Difficulty::runtime_difficulty().unwrap()
-	// 	}
-	// }
-
-	impl sp_consensus_aura::AuraApi<Block, AuraId> for Runtime {
-		fn slot_duration() -> sp_consensus_aura::SlotDuration {
-			sp_consensus_aura::SlotDuration::from_millis(Aura::slot_duration())
-		}
-
-		fn authorities() -> Vec<AuraId> {
-			Aura::authorities().into_inner()
+	impl sp_consensus_pow::DifficultyApi<Block, sp_core::U256> for Runtime {
+		fn difficulty() -> sp_core::U256 {
+			Difficulty::runtime_difficulty().unwrap()
 		}
 	}
 
+	// impl sp_consensus_aura::AuraApi<Block, AuraId> for Runtime {
+	// 	fn slot_duration() -> sp_consensus_aura::SlotDuration {
+	// 		sp_consensus_aura::SlotDuration::from_millis(Aura::slot_duration())
+	// 	}
+
+	// 	fn authorities() -> Vec<AuraId> {
+	// 		Aura::authorities().into_inner()
+	// 	}
+	// }// Change Here
+
 	impl sp_session::SessionKeys<Block> for Runtime {
-		fn generate_session_keys(seed: Option<Vec<u8>>) -> Vec<u8> {
-			opaque::SessionKeys::generate(seed)
+		fn generate_session_keys(
+			_seed: Option<Vec<u8>>
+			// seed: Option<Vec<u8>>  // Change Here
+		) -> Vec<u8> {
+			// opaque::SessionKeys::generate(seed)
+			Vec::new() // Change Here
 		}
 
 		fn decode_session_keys(
-			encoded: Vec<u8>,
+			_encoded: Vec<u8>,
+			// encoded: Vec<u8>, // Change Here
 		) -> Option<Vec<(Vec<u8>, KeyTypeId)>> {
-			opaque::SessionKeys::decode_into_raw_public_keys(&encoded)
+			// opaque::SessionKeys::decode_into_raw_public_keys(&encoded)
+			None // Change Here
 		}
 	}
 
-	impl fg_primitives::GrandpaApi<Block> for Runtime {
-		fn grandpa_authorities() -> GrandpaAuthorityList {
-			Grandpa::grandpa_authorities()
-		}
+	// impl fg_primitives::GrandpaApi<Block> for Runtime {
+	// 	fn grandpa_authorities() -> GrandpaAuthorityList {
+	// 		Grandpa::grandpa_authorities()
+	// 	}
 
-		fn current_set_id() -> fg_primitives::SetId {
-			Grandpa::current_set_id()
-		}
+	// 	fn current_set_id() -> fg_primitives::SetId {
+	// 		Grandpa::current_set_id()
+	// 	}
 
-		fn submit_report_equivocation_unsigned_extrinsic(
-			_equivocation_proof: fg_primitives::EquivocationProof<
-				<Block as BlockT>::Hash,
-				NumberFor<Block>,
-			>,
-			_key_owner_proof: fg_primitives::OpaqueKeyOwnershipProof,
-		) -> Option<()> {
-			None
-		}
+	// 	fn submit_report_equivocation_unsigned_extrinsic(
+	// 		_equivocation_proof: fg_primitives::EquivocationProof<
+	// 			<Block as BlockT>::Hash,
+	// 			NumberFor<Block>,
+	// 		>,
+	// 		_key_owner_proof: fg_primitives::OpaqueKeyOwnershipProof,
+	// 	) -> Option<()> {
+	// 		None
+	// 	}
 
-		fn generate_key_ownership_proof(
-			_set_id: fg_primitives::SetId,
-			_authority_id: GrandpaId,
-		) -> Option<fg_primitives::OpaqueKeyOwnershipProof> {
-			// NOTE: this is the only implementation possible since we've
-			// defined our key owner proof type as a bottom type (i.e. a type
-			// with no values).
-			None
-		}
-	}
+	// 	fn generate_key_ownership_proof(
+	// 		_set_id: fg_primitives::SetId,
+	// 		_authority_id: GrandpaId,
+	// 	) -> Option<fg_primitives::OpaqueKeyOwnershipProof> {
+	// 		// NOTE: this is the only implementation possible since we've
+	// 		// defined our key owner proof type as a bottom type (i.e. a type
+	// 		// with no values).
+	// 		None
+	// 	}
+	// }// Change Here
 
 	impl frame_system_rpc_runtime_api::AccountNonceApi<Block, AccountId, Index> for Runtime {
 		fn account_nonce(account: AccountId) -> Index {
