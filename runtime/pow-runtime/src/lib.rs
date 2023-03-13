@@ -238,6 +238,12 @@ impl pallet_rewards::Config for Runtime {
 	type Currency = Balances;
 }
 
+impl ea4healthcare::Config for Runtime {
+	type RuntimeEvent = RuntimeEvent;
+    type HealthRandomness = RandomnessCollectiveFlip;
+	type WeightInfo = ();
+}
+
 parameter_types! {
 	pub const UncleGenerations: BlockNumber = 5;
 	pub const ProposalBond: Permill = Permill::from_percent(5);
@@ -293,6 +299,7 @@ construct_runtime!(
 		Rewards: pallet_rewards,
 		Authorship: pallet_authorship,
 		Treasury: pallet_treasury,
+		EA4Healthcare: ea4healthcare,
 	}
 );
 
