@@ -7,9 +7,6 @@ pub struct Cli {
 
 	#[clap(flatten)]
 	pub run: RunCmd,
-
-	#[structopt(long)]
-	pub author: Option<String>,  //Change here
 }
 
 #[derive(Debug, clap::Subcommand)]
