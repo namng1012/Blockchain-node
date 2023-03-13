@@ -18,6 +18,7 @@ name = "original"
 
 [dependencies]
 clap = { version = "4.0.9", features = ["derive"] }
+sha3-pow = {version = "4.0.0-dev", path = "./sha3pow"} ## Change Here
 
 sc-cli = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
 sp-core = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
@@ -25,8 +26,11 @@ sc-executor = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
 sc-service = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
 sc-telemetry = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
 sc-keystore = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+sp-keystore = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
 sc-transaction-pool = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
 sc-transaction-pool-api = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+sc-consensus-pow = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"} ## Change Here
+sp-consensus-pow = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"} ## Change Here
 sc-consensus-aura = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
 sp-consensus-aura = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
 sp-consensus = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
@@ -41,6 +45,9 @@ sp-keyring = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
 
 frame-system = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
 pallet-transaction-payment = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git", default-features = false }
+
+hex-literal = "0.3.4" ## Change Here
+futures = "0.3.25" ## Change Here
 
 # These dependencies are used for the node template's RPCs
 jsonrpsee = { version = "0.15.1", features = ["server"] }
