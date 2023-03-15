@@ -1,7 +1,7 @@
 [package]
 edition = "2021"
 name = "pallet-difficulty"
-authors = [""]
+authors = ["Re-edited by Nam "]
 version = "4.0.0-dev"
 license = "Unlicense"
 readme = "README.md"

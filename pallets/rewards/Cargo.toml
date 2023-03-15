@@ -2,7 +2,7 @@
 name = "pallet-rewards"
 version = "4.0.0-dev"
 edition = "2021"
-authors = [""]
+authors = ["Re-edited by Nam "]
 
 [package.metadata.docs.rs]
 targets = ["x86_64-unknown-linux-gnu"]
