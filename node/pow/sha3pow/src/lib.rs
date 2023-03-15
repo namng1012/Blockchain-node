@@ -136,15 +136,13 @@ impl<B: BlockT<Hash=H256>, C> PowAlgorithm<B> for Sha3Algorithm<C>
 	// Get the next block's difficulty
 	fn difficulty(&self, parent: B::Hash) -> Result<Self::Difficulty, PowError<B>> {
 		let parent_id = BlockId::<B>::hash(parent);
-		let difficulty = self
-			.client
-			.runtime_api()
-			.difficulty(&parent_id)
-			.map_err(|e| {
-				PowError::Environment(format!("Fetching difficulty from runtime failed: {:?}", e))
-			});
+		let mut difficulty = self.client.runtime_api().difficulty(&parent_id);
+		
+		difficulty = Ok(difficulty.unwrap() + U256::from(5_000_000));
 
-		difficulty
+		difficulty.map_err(|e| {
+			PowError::Environment(format!("Fetching difficulty from runtime failed: {:?}", e))
+		})
 	}
 
 	// Break a tie situation when choosing a chain fork
