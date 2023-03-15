@@ -18,6 +18,7 @@ name = "pow"
 
 [dependencies]
 clap = { version = "4.0.9", features = ["derive"] }
+hex-literal = "0.3.4" ## Change Here
 futures = "0.3.25" ## Change Here
 
 sc-cli = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
