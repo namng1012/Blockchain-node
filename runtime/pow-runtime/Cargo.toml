@@ -1,7 +1,7 @@
 [package]
 name = "pow-runtime"
 version = "4.0.0-dev"
-description = ""
+description = "Only PoW"
 authors = ["Re-edited by Nam "]
 homepage = ""
 edition = "2021"
