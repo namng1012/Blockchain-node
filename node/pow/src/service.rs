@@ -48,7 +48,8 @@ type POWBlockImport = sc_consensus_pow::PowBlockImport<
 	Arc<FullClient>,
 	FullClient,
 	FullSelectChain,
-	Sha3Algorithm<FullClient>,
+	MinimalSha3Algorithm,
+	// Sha3Algorithm<FullClient>,
 	Box<
 		dyn sp_inherents::CreateInherentDataProviders<
 			Block,
@@ -119,7 +120,8 @@ pub fn new_partial(
 		client.clone(),
 	);
 
-	let algorithm = Sha3Algorithm::new(client.clone()); // Change Here
+	// let algorithm = Sha3Algorithm::new(client.clone()); // Change Here
+	let algorithm = MinimalSha3Algorithm;
 
 	let pow_block_import = sc_consensus_pow::PowBlockImport::new(
 		client.clone(),
@@ -293,7 +295,8 @@ pub fn new_full(
 		telemetry: telemetry.as_mut(),
 	})?;
 
-	let algorithm = Sha3Algorithm::new(client.clone()); // Change Here
+	// let algorithm = Sha3Algorithm::new(client.clone()); // Change Here
+	let algorithm = MinimalSha3Algorithm;
 
 	let proposer_factory = sc_basic_authorship::ProposerFactory::new(
 		task_manager.spawn_handle(),

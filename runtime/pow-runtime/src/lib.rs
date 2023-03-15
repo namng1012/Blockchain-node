@@ -183,7 +183,7 @@ impl pallet_timestamp::Config for Runtime {
 	/// A timestamp: milliseconds since the unix epoch.
 	type Moment = u64;
 	type OnTimestampSet = ();
-	type MinimumPeriod = ConstU64<{ SLOT_DURATION / 2 }>;
+	type MinimumPeriod = ConstU64<{MINIMUMPERIOD}>;
 	type WeightInfo = ();
 }
 
@@ -242,7 +242,7 @@ parameter_types! {
 	pub const UncleGenerations: BlockNumber = 5;
 	pub const ProposalBond: Permill = Permill::from_percent(5);
 	pub const ProposalBondMinimum: Balance = 1 * DOLLARS;
-	pub const SpendPeriod: BlockNumber = 1 * DAYS;
+	pub const SpendPeriod: BlockNumber = 1 * SPENDPERIOD;
 	pub const Burn: Permill = Permill::from_percent(50);
 	pub const TreasuryPalletId: PalletId = PalletId(*b"py/trsry");
 	pub const MaxApprovals: u32 = 100;
