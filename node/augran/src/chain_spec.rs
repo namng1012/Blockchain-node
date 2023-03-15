@@ -1,4 +1,4 @@
-use original_runtime::{
+use augran_runtime::{
 	AccountId, AuraConfig, BalancesConfig, GenesisConfig, GrandpaConfig, Signature,
 	SudoConfig, SystemConfig, WASM_BINARY,
 };

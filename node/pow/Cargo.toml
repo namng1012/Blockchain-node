@@ -1,13 +1,13 @@
 [package]
 name = "pow"
 version = "4.0.0-dev"
-description = "A fresh FRAME-based Substrate node, ready for hacking."
-authors = ["Substrate DevHub <https://github.com/substrate-developer-hub>"]
-homepage = "https://substrate.io/"
+description = "Only PoW"
+authors = ["Re-edited by Nam "]
+homepage = ""
 edition = "2021"
 license = "Unlicense"
 publish = false
-repository = "https://github.com/substrate-developer-hub/substrate-pow/"
+repository = ""
 build = "build.rs"
 
 [package.metadata.docs.rs]
