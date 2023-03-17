@@ -2266,12 +2266,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7f24254aa9a54b5c858eaee2f5bccdb46aaf0e486a595ed5fd8f86ba55232a70"
 
 [[package]]
-name = "hex-literal"
-version = "0.3.4"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7ebdb29d2ea9ed0083cd8cece49bbd968021bd99b0849edb4a9a7ee0fdf6a4e0"
-
-[[package]]
 name = "hmac"
 version = "0.8.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3891,8 +3885,6 @@ dependencies = [
  "frame-benchmarking",
  "frame-benchmarking-cli",
  "frame-system",
- "futures",
- "hex-literal",
  "jsonrpsee",
  "original-runtime",
  "pallet-transaction-payment",
@@ -3902,7 +3894,6 @@ dependencies = [
  "sc-client-api",
  "sc-consensus",
  "sc-consensus-aura",
- "sc-consensus-pow",
  "sc-executor",
  "sc-finality-grandpa",
  "sc-keystore",
@@ -3912,18 +3903,15 @@ dependencies = [
  "sc-telemetry",
  "sc-transaction-pool",
  "sc-transaction-pool-api",
- "sha3-pow",
  "sp-api",
  "sp-block-builder",
  "sp-blockchain",
  "sp-consensus",
  "sp-consensus-aura",
- "sp-consensus-pow",
  "sp-core",
  "sp-finality-grandpa",
  "sp-inherents",
  "sp-keyring",
- "sp-keystore",
  "sp-runtime",
  "sp-timestamp",
  "substrate-build-script-utils",
@@ -3943,24 +3931,19 @@ dependencies = [
  "frame-system-rpc-runtime-api",
  "frame-try-runtime",
  "pallet-aura",
- "pallet-authorship",
  "pallet-balances",
- "pallet-difficulty",
  "pallet-grandpa",
  "pallet-randomness-collective-flip",
- "pallet-rewards",
  "pallet-sudo",
  "pallet-timestamp",
  "pallet-transaction-payment",
  "pallet-transaction-payment-rpc-runtime-api",
- "pallet-treasury",
  "pallet-utility",
  "parity-scale-codec",
  "scale-info",
  "sp-api",
  "sp-block-builder",
  "sp-consensus-aura",
- "sp-consensus-pow",
  "sp-core",
  "sp-inherents",
  "sp-offchain",
@@ -4035,19 +4018,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "pallet-difficulty"
-version = "4.0.0-dev"
-dependencies = [
- "frame-support",
- "frame-system",
- "parity-scale-codec",
- "scale-info",
- "serde",
- "sp-core",
- "sp-io",
-]
-
-[[package]]
 name = "pallet-grandpa"
 version = "4.0.0-dev"
 source = "git+https://github.com/namng1012/Polkadot-Package-9-32.git#b6a7821976807f80d26ae724480ded5b9ba97b99"
@@ -4082,21 +4052,6 @@ dependencies = [
  "scale-info",
  "sp-runtime",
  "sp-std",
-]
-
-[[package]]
-name = "pallet-rewards"
-version = "4.0.0-dev"
-dependencies = [
- "frame-support",
- "frame-system",
- "pallet-authorship",
- "pallet-balances",
- "parity-scale-codec",
- "scale-info",
- "sp-consensus-pow",
- "sp-core",
- "sp-runtime",
 ]
 
 [[package]]
@@ -4194,23 +4149,6 @@ dependencies = [
  "sp-api",
  "sp-runtime",
  "sp-weights",
-]
-
-[[package]]
-name = "pallet-treasury"
-version = "4.0.0-dev"
-source = "git+https://github.com/namng1012/Polkadot-Package-9-32.git#b6a7821976807f80d26ae724480ded5b9ba97b99"
-dependencies = [
- "frame-benchmarking",
- "frame-support",
- "frame-system",
- "impl-trait-for-tuples",
- "pallet-balances",
- "parity-scale-codec",
- "scale-info",
- "serde",
- "sp-runtime",
- "sp-std",
 ]
 
 [[package]]
@@ -5496,31 +5434,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "sc-consensus-pow"
-version = "0.10.0-dev"
-source = "git+https://github.com/namng1012/Polkadot-Package-9-32.git#b6a7821976807f80d26ae724480ded5b9ba97b99"
-dependencies = [
- "async-trait",
- "futures",
- "futures-timer",
- "log",
- "parity-scale-codec",
- "parking_lot 0.12.1",
- "sc-client-api",
- "sc-consensus",
- "sp-api",
- "sp-block-builder",
- "sp-blockchain",
- "sp-consensus",
- "sp-consensus-pow",
- "sp-core",
- "sp-inherents",
- "sp-runtime",
- "substrate-prometheus-endpoint",
- "thiserror",
-]
-
-[[package]]
 name = "sc-consensus-slots"
 version = "0.10.0-dev"
 source = "git+https://github.com/namng1012/Polkadot-Package-9-32.git#b6a7821976807f80d26ae724480ded5b9ba97b99"
@@ -6502,25 +6415,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "sha3-pow"
-version = "4.0.0-dev"
-dependencies = [
- "parity-scale-codec",
- "rand 0.8.5",
- "sc-client-api",
- "sc-consensus",
- "sc-consensus-pow",
- "scale-info",
- "sha3",
- "sp-api",
- "sp-application-crypto",
- "sp-blockchain",
- "sp-consensus-pow",
- "sp-core",
- "sp-runtime",
-]
-
-[[package]]
 name = "sharded-slab"
 version = "0.1.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -6781,18 +6675,6 @@ dependencies = [
  "sp-runtime",
  "sp-std",
  "sp-timestamp",
-]
-
-[[package]]
-name = "sp-consensus-pow"
-version = "0.10.0-dev"
-source = "git+https://github.com/namng1012/Polkadot-Package-9-32.git#b6a7821976807f80d26ae724480ded5b9ba97b99"
-dependencies = [
- "parity-scale-codec",
- "sp-api",
- "sp-core",
- "sp-runtime",
- "sp-std",
 ]
 
 [[package]]
