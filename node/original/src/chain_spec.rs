@@ -1,4 +1,4 @@
-use original_runtime::{
+use bagran_runtime::{
 	AccountId, AuraConfig, BalancesConfig, GenesisConfig, GrandpaConfig, Signature,
 	SudoConfig, SystemConfig, WASM_BINARY,
 };
