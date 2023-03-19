@@ -29,6 +29,8 @@ sc-transaction-pool = { git = "https://github.com/namng1012/Polkadot-Package-9-3
 sc-transaction-pool-api = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
 sc-consensus-aura = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
 sp-consensus-aura = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+sc-consensus-babe = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"} # Change Here
+sp-consensus-babe = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"} # Change Here
 sp-consensus = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
 sc-consensus = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
 sc-finality-grandpa = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
