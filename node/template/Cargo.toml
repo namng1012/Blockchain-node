@@ -1,20 +1,20 @@
 [package]
-name = "bagran"
+name = "template"
 version = "4.0.0-dev"
-description = "A fresh FRAME-based Substrate node, ready for hacking."
-authors = ["Substrate DevHub <https://github.com/substrate-developer-hub>"]
-homepage = "https://substrate.io/"
+description = "Template Blockchain"
+authors = ["Re-edited by Nam "]
+homepage = ""
 edition = "2021"
 license = "Unlicense"
 publish = false
-repository = "https://github.com/substrate-developer-hub/substrate-bagran/"
+repository = ""
 build = "build.rs"
 
 [package.metadata.docs.rs]
 targets = ["x86_64-unknown-linux-gnu"]
 
 [[bin]]
-name = "bagran"
+name = "template"
 
 [dependencies]
 clap = { version = "4.0.9", features = ["derive"] }
@@ -29,8 +29,6 @@ sc-transaction-pool = { git = "https://github.com/namng1012/Polkadot-Package-9-3
 sc-transaction-pool-api = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
 sc-consensus-aura = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
 sp-consensus-aura = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
-sc-consensus-babe = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"} # Change Here
-sp-consensus-babe = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"} # Change Here
 sp-consensus = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
 sc-consensus = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
 sc-finality-grandpa = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
@@ -60,7 +58,7 @@ frame-benchmarking = { git = "https://github.com/namng1012/Polkadot-Package-9-32
 frame-benchmarking-cli = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
 
 # Local Dependencies
-bagran-runtime = { path = "../../runtime/bagran" }
+template-runtime = { path = "../../runtime/template-runtime" }
 
 # CLI-specific dependencies
 try-runtime-cli = { git = "https://github.com/namng1012/Polkadot-Package-9-32.git", optional = true}
@@ -72,10 +70,10 @@ substrate-build-script-utils = { git = "https://github.com/namng1012/Polkadot-Pa
 default = []
 # Dependencies that are only required if runtime benchmarking should be build.
 runtime-benchmarks = [
-	"bagran-runtime/runtime-benchmarks",
+	"template-runtime/runtime-benchmarks",
 	"frame-benchmarking/runtime-benchmarks",
 	"frame-benchmarking-cli/runtime-benchmarks",
 ]
 # Enable features that allow the runtime to be tried and debugged. Name might be subject to change
 # in the near future.
-try-runtime = ["bagran-runtime/try-runtime", "try-runtime-cli"]
+try-runtime = ["template-runtime/try-runtime", "try-runtime-cli"]

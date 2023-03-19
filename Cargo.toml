@@ -1,7 +1,7 @@
 [workspace]
 members = [
-    "node/bagran",
-    "runtime/bagran",
+    "node/template",
+    "runtime/template-runtime",
 ]
 [profile.release]
 panic = "unwind"

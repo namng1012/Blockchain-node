@@ -1,11 +1,9 @@
-use bagran_runtime::{
-	AccountId, 
-	BalancesConfig, GenesisConfig, GrandpaConfig, Signature,
+use template_runtime::{
+	AccountId, AuraConfig, BalancesConfig, GenesisConfig, GrandpaConfig, Signature,
 	SudoConfig, SystemConfig, WASM_BINARY,
-	BabeConfig // Change Here
 };
 use sc_service::ChainType;
-use sp_consensus_babe::{AuthorityId as BabeId}; // Change Here
+use sp_consensus_aura::sr25519::AuthorityId as AuraId;
 use sp_core::{sr25519, Pair, Public};
 use sp_finality_grandpa::AuthorityId as GrandpaId;
 use sp_runtime::traits::{IdentifyAccount, Verify};
@@ -33,10 +31,10 @@ where
 	AccountPublic::from(get_from_seed::<TPublic>(seed)).into_account()
 }
 
-// /// Generate an Babe authority key.
-pub fn authority_keys_from_seed(s: &str) -> (BabeId, GrandpaId) {
-	(get_from_seed::<BabeId>(s), get_from_seed::<GrandpaId>(s))
-} // Change Here
+/// Generate an Aura authority key.
+pub fn authority_keys_from_seed(s: &str) -> (AuraId, GrandpaId) {
+	(get_from_seed::<AuraId>(s), get_from_seed::<GrandpaId>(s))
+}
 
 pub fn development_config() -> Result<ChainSpec, String> {
 	let wasm_binary = WASM_BINARY.ok_or_else(|| "Development wasm not available".to_string())?;
@@ -134,7 +132,7 @@ pub fn local_testnet_config() -> Result<ChainSpec, String> {
 /// Configure initial storage state for FRAME modules.
 fn testnet_genesis(
 	wasm_binary: &[u8],
-	initial_authorities: Vec<(BabeId, GrandpaId)>, //Change here
+	initial_authorities: Vec<(AuraId, GrandpaId)>,
 	root_key: AccountId,
 	endowed_accounts: Vec<AccountId>,
 	_enable_println: bool,
@@ -148,13 +146,12 @@ fn testnet_genesis(
 			// Configure endowed accounts with initial balance of 1 << 60.
 			balances: endowed_accounts.iter().cloned().map(|k| (k, 1 << 60)).collect(),
 		},
+		aura: AuraConfig {
+			authorities: initial_authorities.iter().map(|x| (x.0.clone())).collect(),
+		},
 		grandpa: GrandpaConfig {
 			authorities: initial_authorities.iter().map(|x| (x.1.clone(), 1)).collect(),
 		},
-		babe: BabeConfig {
-			authorities: initial_authorities.iter().map(|x| (x.0.clone(), 1)).collect(),
-			epoch_config: Some(bagran_runtime::BABE_GENESIS_EPOCH_CONFIG),
-		}, // Change here
 		sudo: SudoConfig {
 			// Assign network admin rights.
 			key: Some(root_key),
