@@ -1,0 +1,121 @@
+[package]
+name = "bagran-runtime"
+version = "4.0.0-dev"
+description = "Babe & Grandpa"
+authors = ["Re-edited by Nam "]
+homepage = ""
+edition = "2021"
+license = "Unlicense"
+publish = false
+repository = ""
+
+[package.metadata.docs.rs]
+targets = ["x86_64-unknown-linux-gnu"]
+
+[dependencies]
+codec = { package = "parity-scale-codec", version = "3.0.0", default-features = false, features = ["derive"] }
+scale-info = { version = "2.1.1", default-features = false, features = ["derive"] }
+
+pallet-balances = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+frame-support = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+pallet-grandpa = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+pallet-randomness-collective-flip = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+pallet-sudo = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+frame-system = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+frame-try-runtime = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git", optional = true}
+pallet-timestamp = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+pallet-utility = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+pallet-transaction-payment = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+frame-executive = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+sp-api = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+sp-block-builder = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+sp-core = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+sp-inherents = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+sp-offchain = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+sp-runtime = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+sp-session = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+sp-std = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+sp-transaction-pool = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+sp-version = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+
+pallet-babe = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"} # Change Here
+sp-consensus-babe = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"} # Change Here
+# pallet-im-online = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"} # Change Here
+# pallet-session = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git", features = ["historical"]} # Change Here
+# pallet-offences = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"} # Change here
+# pallet-staking = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"} # Change here
+
+# Used for the node template's RPCs
+frame-system-rpc-runtime-api = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+pallet-transaction-payment-rpc-runtime-api = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+
+# Used for runtime benchmarking
+frame-benchmarking = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git", optional = true }
+frame-system-benchmarking = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git", optional = true }
+
+[build-dependencies]
+substrate-wasm-builder = { default-features = false, git = "https://github.com/namng1012/Polkadot-Package-9-32.git"}
+
+[features]
+default = ["std"]
+std = [
+	# "pallet-staking/std",# Change here
+	# "pallet-offences/std", # Change here
+	# "pallet-session/std", # Change here
+	# "pallet-im-online/std", # Change here
+	"pallet-utility/std",
+	"pallet-timestamp/std",
+	"frame-try-runtime?/std",
+	"frame-system-benchmarking?/std",
+	"frame-benchmarking?/std",
+	"codec/std",
+	"scale-info/std",
+	"frame-executive/std",
+	"frame-support/std",
+	"frame-system-rpc-runtime-api/std",
+	"frame-system/std",
+	"frame-try-runtime/std",
+	"pallet-balances/std",
+	"pallet-grandpa/std",
+	"pallet-randomness-collective-flip/std",
+	"pallet-sudo/std",
+	"pallet-timestamp/std",
+	"pallet-transaction-payment-rpc-runtime-api/std",
+	"pallet-transaction-payment/std",
+	"sp-api/std",
+	"sp-block-builder/std",
+	"sp-core/std",
+	"sp-inherents/std",
+	"sp-offchain/std",
+	"sp-runtime/std",
+	"sp-session/std",
+	"sp-std/std",
+	"sp-transaction-pool/std",
+	"sp-version/std",
+	"pallet-babe/std",# Change Here
+	"sp-consensus-babe/std",# Change Here
+]
+runtime-benchmarks = [
+	"frame-benchmarking/runtime-benchmarks",
+	"frame-support/runtime-benchmarks",
+	"frame-system-benchmarking/runtime-benchmarks",
+	"frame-system/runtime-benchmarks",
+	"pallet-balances/runtime-benchmarks",
+	"pallet-grandpa/runtime-benchmarks",
+	"pallet-timestamp/runtime-benchmarks",
+	"sp-runtime/runtime-benchmarks",
+	"pallet-babe/runtime-benchmarks",
+]
+try-runtime = [
+	"frame-try-runtime",
+	"frame-executive/try-runtime",
+	"frame-system/try-runtime",
+	"frame-support/try-runtime",
+	"pallet-balances/try-runtime",
+	"pallet-grandpa/try-runtime",
+	"pallet-randomness-collective-flip/try-runtime",
+	"pallet-sudo/try-runtime",
+	"pallet-timestamp/try-runtime",
+	"pallet-transaction-payment/try-runtime",
+	"pallet-babe/try-runtime",# Change Here
+]

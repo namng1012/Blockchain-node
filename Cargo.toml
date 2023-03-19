@@ -3,7 +3,9 @@ members = [
     "node/augran",
     "runtime/augran-runtime",
     "node/pow",
-    "runtime/pow-runtime"
+    "runtime/pow-runtime",
+    "node/bagran",
+    "runtime/bagran-runtime",
 ]
 [profile.release]
 panic = "unwind"
