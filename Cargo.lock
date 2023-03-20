@@ -1597,20 +1597,6 @@ dependencies = [
 
 [[package]]
 name = "finality-grandpa"
-version = "0.15.0"
-dependencies = [
- "either",
- "futures",
- "futures-timer",
- "log",
- "num-traits",
- "parity-scale-codec",
- "parking_lot 0.11.2",
- "scale-info",
-]
-
-[[package]]
-name = "finality-grandpa"
 version = "0.16.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e24e6c429951433ccb7c87fd528c60084834dcd14763182c1f83291bcde24c34"
@@ -1764,33 +1750,6 @@ dependencies = [
  "tempfile",
  "thiserror",
  "thousands",
-]
-
-[[package]]
-name = "frame-election-provider-solution-type"
-version = "4.0.0-dev"
-source = "git+https://github.com/namng1012/Polkadot-Package-9-32.git#b6a7821976807f80d26ae724480ded5b9ba97b99"
-dependencies = [
- "proc-macro-crate",
- "proc-macro2",
- "quote",
- "syn",
-]
-
-[[package]]
-name = "frame-election-provider-support"
-version = "4.0.0-dev"
-source = "git+https://github.com/namng1012/Polkadot-Package-9-32.git#b6a7821976807f80d26ae724480ded5b9ba97b99"
-dependencies = [
- "frame-election-provider-solution-type",
- "frame-support",
- "frame-system",
- "parity-scale-codec",
- "scale-info",
- "sp-arithmetic",
- "sp-npos-elections",
- "sp-runtime",
- "sp-std",
 ]
 
 [[package]]
@@ -4004,53 +3963,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "pallet-offences"
-version = "4.0.0-dev"
-source = "git+https://github.com/namng1012/Polkadot-Package-9-32.git#b6a7821976807f80d26ae724480ded5b9ba97b99"
-dependencies = [
- "frame-support",
- "frame-system",
- "log",
- "pallet-balances",
- "parity-scale-codec",
- "scale-info",
- "serde",
- "sp-runtime",
- "sp-staking",
- "sp-std",
-]
-
-[[package]]
-name = "pallet-pbft"
-version = "0.1.0"
-dependencies = [
- "finality-grandpa 0.15.0",
- "frame-benchmarking",
- "frame-election-provider-support",
- "frame-support",
- "frame-system",
- "log",
- "pallet-authorship",
- "pallet-balances",
- "pallet-offences",
- "pallet-session",
- "pallet-staking",
- "pallet-staking-reward-curve",
- "pallet-timestamp",
- "parity-scale-codec",
- "scale-info",
- "sp-application-crypto",
- "sp-core",
- "sp-finality-pbft",
- "sp-io",
- "sp-keyring",
- "sp-runtime",
- "sp-session",
- "sp-staking",
- "sp-std",
-]
-
-[[package]]
 name = "pallet-randomness-collective-flip"
 version = "4.0.0-dev"
 source = "git+https://github.com/namng1012/Polkadot-Package-9-32.git#b6a7821976807f80d26ae724480ded5b9ba97b99"
@@ -4083,39 +3995,6 @@ dependencies = [
  "sp-staking",
  "sp-std",
  "sp-trie",
-]
-
-[[package]]
-name = "pallet-staking"
-version = "4.0.0-dev"
-source = "git+https://github.com/namng1012/Polkadot-Package-9-32.git#b6a7821976807f80d26ae724480ded5b9ba97b99"
-dependencies = [
- "frame-benchmarking",
- "frame-election-provider-support",
- "frame-support",
- "frame-system",
- "log",
- "pallet-authorship",
- "pallet-session",
- "parity-scale-codec",
- "scale-info",
- "serde",
- "sp-application-crypto",
- "sp-io",
- "sp-runtime",
- "sp-staking",
- "sp-std",
-]
-
-[[package]]
-name = "pallet-staking-reward-curve"
-version = "4.0.0-dev"
-source = "git+https://github.com/namng1012/Polkadot-Package-9-32.git#b6a7821976807f80d26ae724480ded5b9ba97b99"
-dependencies = [
- "proc-macro-crate",
- "proc-macro2",
- "quote",
- "syn",
 ]
 
 [[package]]
@@ -5587,7 +5466,7 @@ dependencies = [
  "array-bytes",
  "async-trait",
  "dyn-clone",
- "finality-grandpa 0.16.1",
+ "finality-grandpa",
  "fork-tree",
  "futures",
  "futures-timer",
@@ -6840,24 +6719,7 @@ name = "sp-finality-grandpa"
 version = "4.0.0-dev"
 source = "git+https://github.com/namng1012/Polkadot-Package-9-32.git#b6a7821976807f80d26ae724480ded5b9ba97b99"
 dependencies = [
- "finality-grandpa 0.16.1",
- "log",
- "parity-scale-codec",
- "scale-info",
- "serde",
- "sp-api",
- "sp-application-crypto",
- "sp-core",
- "sp-keystore",
- "sp-runtime",
- "sp-std",
-]
-
-[[package]]
-name = "sp-finality-pbft"
-version = "0.1.0"
-dependencies = [
- "finality-grandpa 0.15.0",
+ "finality-grandpa",
  "log",
  "parity-scale-codec",
  "scale-info",
@@ -6945,20 +6807,6 @@ source = "git+https://github.com/namng1012/Polkadot-Package-9-32.git#b6a78219768
 dependencies = [
  "thiserror",
  "zstd",
-]
-
-[[package]]
-name = "sp-npos-elections"
-version = "4.0.0-dev"
-source = "git+https://github.com/namng1012/Polkadot-Package-9-32.git#b6a7821976807f80d26ae724480ded5b9ba97b99"
-dependencies = [
- "parity-scale-codec",
- "scale-info",
- "serde",
- "sp-arithmetic",
- "sp-core",
- "sp-runtime",
- "sp-std",
 ]
 
 [[package]]
