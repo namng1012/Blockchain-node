@@ -2,6 +2,11 @@
 members = [
     "node/template",
     "runtime/template-runtime",
+    "frame/pbft",
+    "primitives/finality-pbft"
 ]
 [profile.release]
 panic = "unwind"
+
+[patch.crates-io]
+grandpa = { package = "finality-grandpa", path = "./primitives/finality-pbft/pbft" }
