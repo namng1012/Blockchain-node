@@ -138,7 +138,7 @@ impl<B: BlockT<Hash=H256>, C> PowAlgorithm<B> for Sha3Algorithm<C>
 		let parent_id = BlockId::<B>::hash(parent);
 		let mut difficulty = self.client.runtime_api().difficulty(&parent_id);
 		
-		difficulty = Ok(difficulty.unwrap() + U256::from(5_000_000));
+		difficulty = Ok(difficulty.unwrap() + U256::from(200_000_000));
 
 		difficulty.map_err(|e| {
 			PowError::Environment(format!("Fetching difficulty from runtime failed: {:?}", e))
